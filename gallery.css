@@ -1,11 +1,28 @@
+.gallery__container * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.gallery__container img {
+	display: block;
+}
+
 .gallery__focusedImage {
 	height: 300px;
 	width: auto;
+	margin-bottom: 1em;
 }
 
 .gallery__thumbnails {
 	display: flex;
 	gap: 1em;
+}
+
+.gallery__button {
+	border: none;
+	background: transparent;
+	cursor: pointer;
 }
 
 .gallery__thumbnail {

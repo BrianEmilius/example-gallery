@@ -1,14 +1,17 @@
 const gallery = (function() {
 	const GALLERY = document.querySelector(".gallery__container")
-	const FOCUSED_IMAGE = GALLERY.querySelector(".gallery__focusedImage")
-	const THUMBNAILS = GALLERY.querySelector(".gallery__thumbnails")
+	const FOCUSED_IMAGE = document.createElement("img")
+	const THUMBNAILS = document.createElement("div")
+
+	FOCUSED_IMAGE.className = "gallery__focusedImage"
+	THUMBNAILS.className = "gallery__thumbnails"
 	
 	function buildThumbnail(image) {
-		const IMG = document.createElement("img")
-		IMG.src = image
-		IMG.className = "gallery__thumbnail"
-		IMG.addEventListener("click", changeFocus)
-		THUMBNAILS.append(IMG)
+		const BUTTON = document.createElement("button")
+		BUTTON.innerHTML = `<img src="${image}" alt="gallery thumbnail" class="gallery__thumbnail">`
+		BUTTON.className = "gallery__button"
+		BUTTON.addEventListener("click", changeFocus)
+		THUMBNAILS.append(BUTTON)
 	}
 
 	function changeFocus(event) {
@@ -19,6 +22,8 @@ const gallery = (function() {
 		FOCUSED_IMAGE.src = images[0]
 
 		images.forEach(buildThumbnail)
+
+		GALLERY.append(FOCUSED_IMAGE, THUMBNAILS)
 	}
 
 	return {
