@@ -1,0 +1,14 @@
+.gallery__focusedImage {
+	height: 300px;
+	width: auto;
+}
+
+.gallery__thumbnails {
+	display: flex;
+	gap: 1em;
+}
+
+.gallery__thumbnail {
+	height: 75px;
+	width: auto;
+}
